@@ -101,6 +101,11 @@
     
 }
 
+-(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    
+    [[KRNItemStore sharedStore]moveItemAtIndex:destinationIndexPath.row toIndex:sourceIndexPath.row];
+}
+
 -(IBAction)toggleEditingMode:(id)sender{
     if (self.isEditing) {
         //Change text of button to inform user of state

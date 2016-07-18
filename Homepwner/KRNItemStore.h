@@ -16,5 +16,6 @@
 +(instancetype)sharedStore;
 -(KRNItems *)createItem;
 -(void)removeItem: (KRNItems *)item;
+-(void)moveItemAtIndex: (NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 
 @end
