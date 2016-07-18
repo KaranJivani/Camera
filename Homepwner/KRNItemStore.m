@@ -52,4 +52,9 @@
     [self.privateItems addObject:item];
     return item;
 }
+
+-(void)removeItem: (KRNItems *)item {
+    
+    [self.privateItems removeObjectIdenticalTo:item];
+}
 @end

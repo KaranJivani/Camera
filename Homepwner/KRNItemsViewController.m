@@ -10,10 +10,18 @@
 #import "KRNItemStore.h"
 #import "KRNItems.h"
 
+@interface KRNItemsViewController ()
+
+@property (nonatomic,strong) IBOutlet UIView *headerView;
+
+@end
 @implementation KRNItemsViewController
 
 -(void)viewDidLoad {
     [super viewDidLoad];
+    
+    UIView *header = self.headerView;
+    [self.tableView setTableHeaderView:header];
     
 }
 -(instancetype)init {
@@ -26,10 +34,7 @@
     //Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
-        for (int i=0; i<5; i++) {
-            [[KRNItemStore sharedStore]createItem];
-        }
-    }
+           }
     
     return self;
 }
@@ -61,5 +66,65 @@
     
     cell.textLabel.text = item.description;
     return cell;
+}
+
+-(IBAction)addNewItems:(id)sender{
+    
+    //Create a KRNItem and add it to the store
+    KRNItems *newItem = [[KRNItemStore sharedStore]createItem];
+    
+    //Figure out where that item is in the array
+    NSInteger lastRow = [[[KRNItemStore sharedStore]allItems] indexOfObject:newItem];
+    
+    //Make a new Indexpath for 0th section, last row
+//    NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+    //Insert this row in the table
+    
+    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+    
+    
+}
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    //If the tableview is asking to commit a delete command
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSArray *items = [[KRNItemStore sharedStore]allItems];
+        KRNItems *item = [items objectAtIndex:indexPath.row];
+        [[KRNItemStore sharedStore]removeItem:item];
+        
+        //Also remove that row from the table view with an animation
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        [tableView reloadData];
+    }
+    
+}
+
+-(IBAction)toggleEditingMode:(id)sender{
+    if (self.isEditing) {
+        //Change text of button to inform user of state
+        [sender setTitle:@"Edit" forState:UIControlStateNormal];
+        
+        //Turn of editing mode
+        [self setEditing:NO animated:YES ];
+    }
+    else{
+        //Change text of button to inform user of state
+        [sender setTitle:@"Done" forState:UIControlStateNormal];
+        
+        //Enter Editing mode
+        [self setEditing:YES animated:YES];
+    }
+    
+}
+
+-(UIView *)headerView {
+    //if you have not loaded the header view yet..
+    if (!_headerView) {
+        //load HeaderView.xib
+        [[NSBundle mainBundle]loadNibNamed:@"HeaderView" owner:self options:nil];
+    }
+    return _headerView;
 }
 @end

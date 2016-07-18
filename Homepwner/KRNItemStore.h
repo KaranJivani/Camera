@@ -15,5 +15,6 @@
 
 +(instancetype)sharedStore;
 -(KRNItems *)createItem;
+-(void)removeItem: (KRNItems *)item;
 
 @end
