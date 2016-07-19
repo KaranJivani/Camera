@@ -18,13 +18,9 @@
 @end
 @implementation KRNItemsViewController
 
--(void)viewDidLoad {
-    [super viewDidLoad];
-    
-    //Uncomment following code for headerview implemetation which edit and add exactly works similar to UINavigationItems add and edit 
-//    UIView *header = self.headerView;
-//    [self.tableView setTableHeaderView:header];
-    }
+
+
+#pragma mark Controller Life Cycle
 -(instancetype)init {
     
     self = [self initWithStyle:UITableViewStylePlain];
@@ -51,11 +47,22 @@
     return self;
 }
 
+#pragma mark View Life Cycle
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    
+    //Uncomment following code for headerview implemetation which edit and add exactly works similar to UINavigationItems add and edit
+    //    UIView *header = self.headerView;
+    //    [self.tableView setTableHeaderView:header];
+}
+
 -(void)viewWillAppear:(BOOL)animated {
     
     [super viewWillAppear:animated];
     [self.tableView reloadData];
 }
+
+#pragma mark Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return [[[KRNItemStore sharedStore]allItems]count];
@@ -124,6 +131,7 @@
     [[KRNItemStore sharedStore]moveItemAtIndex:destinationIndexPath.row toIndex:sourceIndexPath.row];
 }
 
+#pragma mark Table view delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
     KRNDetailViewController *detaiViewController = [[KRNDetailViewController alloc]init];
@@ -137,6 +145,8 @@
     detaiViewController.item = selectedItem;
     
 }
+
+#pragma mark Tableview Header methods
 
 -(IBAction)toggleEditingMode:(id)sender{
     if (self.isEditing) {

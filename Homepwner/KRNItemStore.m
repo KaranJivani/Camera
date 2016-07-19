@@ -8,6 +8,7 @@
 
 #import "KRNItemStore.h"
 #import "KRNItems.h"
+#import "KRNImageStore.h"
 
 @interface KRNItemStore()
 @property(nonatomic) NSMutableArray *privateItems;
@@ -54,6 +55,9 @@
 }
 
 -(void)removeItem: (KRNItems *)item {
+    
+    NSString *key = item.itemKey;
+    [[KRNImageStore sharedStore]deleteImageForKey:key];
     
     [self.privateItems removeObjectIdenticalTo:item];
 }

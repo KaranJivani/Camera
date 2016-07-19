@@ -19,6 +19,7 @@
 		A7B96DE31D3AEBB90029F776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B96DE21D3AEBB90029F776 /* Assets.xcassets */; };
 		A7B96DE61D3AEBB90029F776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B96DE41D3AEBB90029F776 /* LaunchScreen.storyboard */; };
 		A7B96DF51D3AEE5C0029F776 /* KRNItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */; };
+		A7FB0B161D3E97510005B166 /* KRNImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FB0B151D3E97510005B166 /* KRNImageStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		A7B96DE71D3AEBB90029F776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7B96DF31D3AEE5C0029F776 /* KRNItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItemsViewController.h; sourceTree = "<group>"; };
 		A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItemsViewController.m; sourceTree = "<group>"; };
+		A7FB0B141D3E97510005B166 /* KRNImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNImageStore.h; sourceTree = "<group>"; };
+		A7FB0B151D3E97510005B166 /* KRNImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNImageStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,8 @@
 				A79F72181D3D735D003F6AEC /* KRNDetailViewController.h */,
 				A79F72191D3D735D003F6AEC /* KRNDetailViewController.m */,
 				A79F721A1D3D735D003F6AEC /* KRNDetailViewController.xib */,
+				A7FB0B141D3E97510005B166 /* KRNImageStore.h */,
+				A7FB0B151D3E97510005B166 /* KRNImageStore.m */,
 				A7B96DF31D3AEE5C0029F776 /* KRNItemsViewController.h */,
 				A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */,
 				A79F720F1D3C91C7003F6AEC /* HeaderView.xib */,
@@ -136,7 +141,7 @@
 				TargetAttributes = {
 					A7B96DD21D3AEBB90029F776 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = W4NV2CH3X4;
+						DevelopmentTeam = K69MGG379R;
 					};
 				};
 			};
@@ -183,6 +188,7 @@
 				A7B96DDB1D3AEBB90029F776 /* AppDelegate.m in Sources */,
 				A7355C581D3AF41200F4BC79 /* KRNItems.m in Sources */,
 				A79F721B1D3D735D003F6AEC /* KRNDetailViewController.m in Sources */,
+				A7FB0B161D3E97510005B166 /* KRNImageStore.m in Sources */,
 				A7B96DD81D3AEBB90029F776 /* main.m in Sources */,
 				A7B96DF51D3AEE5C0029F776 /* KRNItemsViewController.m in Sources */,
 			);

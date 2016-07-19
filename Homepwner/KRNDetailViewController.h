@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "KRNItems.h"
+#import "KRNImageStore.h"
 @interface KRNDetailViewController : UIViewController
 
 @property(strong,nonatomic) KRNItems *item;

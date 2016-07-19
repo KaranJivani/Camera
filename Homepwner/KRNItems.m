@@ -26,6 +26,12 @@
         self.valueInDollars = value;
     }
     
+    //Create an NSUUID object and get its string presentation
+    NSUUID *uuid = [[NSUUID alloc]init];
+    
+    NSString *key = [uuid UUIDString];
+    _itemKey = key;
+    
     //Return the address of the newly initialized object
     return self;
 }

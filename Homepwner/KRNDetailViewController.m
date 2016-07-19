@@ -8,7 +8,7 @@
 
 #import "KRNDetailViewController.h"
 
-@interface KRNDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface KRNDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
@@ -20,6 +20,7 @@
 @end
 
 @implementation KRNDetailViewController
+
 
 -(void)viewWillAppear:(BOOL)animated {
     
@@ -41,6 +42,13 @@
     //Use filtered NSDate object to set dateLabel contents
     self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
     
+    NSString *imageKey = self.item.itemKey;
+    
+    //Get the Image for its image key from the image store
+    UIImage *imageToDisplay = [[KRNImageStore sharedStore]imageForKey:imageKey];
+    
+    //Use that Image to put on the screen in image view
+    self.imageView.image = imageToDisplay;
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -87,6 +95,9 @@
     //Get picked image from info dictionary
     UIImage *image = info[UIImagePickerControllerOriginalImage];
     
+    //Store the image in the KRNImageStore for this key
+    [[KRNImageStore sharedStore]setImage:image forKey:self.item.itemKey];
+    
     //Put that image in to the screen in our image view
     self.imageView.image = image;
     
@@ -94,4 +105,12 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
+
+-(IBAction)backgroundTapped:(id)sender {
+    [self.view endEditing:YES];
+}
 @end
