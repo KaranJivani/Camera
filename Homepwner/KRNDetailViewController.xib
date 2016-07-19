@@ -8,8 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KRNDetailViewController">
             <connections>
                 <outlet property="dateLabel" destination="QGB-kN-IQ5" id="o5o-hc-vev"/>
+                <outlet property="imageView" destination="VCD-YH-Xaq" id="U0b-4b-CeW"/>
                 <outlet property="nameField" destination="xDR-G7-Jkj" id="49N-kf-Ykz"/>
                 <outlet property="serialNumberField" destination="f4o-Gm-so9" id="Cup-Zw-G5u"/>
+                <outlet property="toolbar" destination="di4-Qg-T1N" id="F1x-NZ-mfT"/>
                 <outlet property="valueField" destination="9iy-6H-Rfc" id="tek-J9-jIe"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -61,8 +63,27 @@
                         <outlet property="delegate" destination="-1" id="9f5-jn-ZPi"/>
                     </connections>
                 </textField>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VCD-YH-Xaq">
+                    <rect key="frame" x="162" y="283" width="276" height="223"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="276" id="qC7-C2-2qv"/>
+                    </constraints>
+                </imageView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="di4-Qg-T1N">
+                    <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="5oo-d7-CAU"/>
+                    </constraints>
+                    <items>
+                        <barButtonItem systemItem="camera" id="3wi-I0-C9n">
+                            <connections>
+                                <action selector="takePicture:" destination="-1" id="eld-bC-7gM"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGB-kN-IQ5">
-                    <rect key="frame" x="89" y="244" width="482" height="21"/>
+                    <rect key="frame" x="84" y="232" width="432" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -70,22 +91,28 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="VCD-YH-Xaq" firstAttribute="top" secondItem="QGB-kN-IQ5" secondAttribute="bottom" constant="30" id="27b-wQ-uhm"/>
                 <constraint firstItem="f4o-Gm-so9" firstAttribute="top" secondItem="xDR-G7-Jkj" secondAttribute="bottom" constant="12" id="2Yw-Ck-kdp"/>
                 <constraint firstItem="act-N8-itL" firstAttribute="top" secondItem="tDI-6p-an3" secondAttribute="bottom" constant="21" id="4I4-4k-epv"/>
                 <constraint firstItem="f4o-Gm-so9" firstAttribute="leading" secondItem="tDI-6p-an3" secondAttribute="trailing" constant="18" id="5Zp-b0-nUg"/>
+                <constraint firstAttribute="trailing" secondItem="di4-Qg-T1N" secondAttribute="trailing" id="9GC-I1-skj"/>
                 <constraint firstItem="xDR-G7-Jkj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="93" id="Brr-pS-4pE"/>
                 <constraint firstAttribute="trailing" secondItem="9iy-6H-Rfc" secondAttribute="trailing" constant="29" id="Cul-wi-dan"/>
                 <constraint firstItem="tDI-6p-an3" firstAttribute="top" secondItem="QRK-c8-3Vg" secondAttribute="bottom" constant="20" id="DPV-xs-qoF"/>
                 <constraint firstAttribute="trailing" secondItem="xDR-G7-Jkj" secondAttribute="trailing" constant="29" id="LC6-OX-Y35"/>
                 <constraint firstItem="9iy-6H-Rfc" firstAttribute="top" secondItem="f4o-Gm-so9" secondAttribute="bottom" constant="13" id="Q9H-Ug-fj0"/>
                 <constraint firstItem="9iy-6H-Rfc" firstAttribute="leading" secondItem="act-N8-itL" secondAttribute="trailing" constant="18" id="RiE-z1-5f7"/>
+                <constraint firstItem="VCD-YH-Xaq" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Vit-r1-vWL"/>
                 <constraint firstItem="act-N8-itL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="aCS-pt-OOQ"/>
-                <constraint firstItem="QGB-kN-IQ5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="89" id="fRc-or-nlf"/>
+                <constraint firstItem="di4-Qg-T1N" firstAttribute="top" secondItem="VCD-YH-Xaq" secondAttribute="bottom" constant="50" id="e6Y-5v-VjR"/>
+                <constraint firstItem="QGB-kN-IQ5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="84" id="fRc-or-nlf"/>
                 <constraint firstItem="QRK-c8-3Vg" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="ggf-Hw-Rbh"/>
-                <constraint firstAttribute="trailing" secondItem="QGB-kN-IQ5" secondAttribute="trailing" constant="29" id="hBx-w5-LFY"/>
-                <constraint firstItem="QGB-kN-IQ5" firstAttribute="top" secondItem="9iy-6H-Rfc" secondAttribute="bottom" constant="36" id="haY-kz-Lex"/>
+                <constraint firstAttribute="trailing" secondItem="QGB-kN-IQ5" secondAttribute="trailing" constant="84" id="hBx-w5-LFY"/>
+                <constraint firstAttribute="bottom" secondItem="di4-Qg-T1N" secondAttribute="bottom" id="hMA-nv-j12"/>
+                <constraint firstItem="QGB-kN-IQ5" firstAttribute="top" secondItem="9iy-6H-Rfc" secondAttribute="bottom" constant="24" id="haY-kz-Lex"/>
                 <constraint firstItem="tDI-6p-an3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="iwI-Pm-KDR"/>
                 <constraint firstAttribute="trailing" secondItem="f4o-Gm-so9" secondAttribute="trailing" constant="29" id="own-r7-N0D"/>
+                <constraint firstItem="di4-Qg-T1N" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s4l-6r-v50"/>
                 <constraint firstItem="QRK-c8-3Vg" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="97" id="vfO-hc-Bd9"/>
                 <constraint firstItem="xDR-G7-Jkj" firstAttribute="leading" secondItem="QRK-c8-3Vg" secondAttribute="trailing" constant="18" id="xyG-NR-yuk"/>
             </constraints>

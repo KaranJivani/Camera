@@ -94,8 +94,7 @@
 }
 
 -(NSDate *) dateCreated {
-    NSDate *date = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
-    
+    NSDate *date = [[NSDate alloc]init];
     return date;
     
 }

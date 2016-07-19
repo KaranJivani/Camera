@@ -8,12 +8,14 @@
 
 #import "KRNDetailViewController.h"
 
-@interface KRNDetailViewController ()
+@interface KRNDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
 @property (weak, nonatomic) IBOutlet UITextField *valueField;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
 
 @end
 
@@ -35,10 +37,9 @@
         dateFormatter = [[NSDateFormatter alloc]init];
         dateFormatter.dateStyle = NSDateFormatterMediumStyle;
         dateFormatter.timeStyle = NSDateFormatterNoStyle;
-        
-        //Use filtered NSDate object to set dateLabel contents
-        self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
     }
+    //Use filtered NSDate object to set dateLabel contents
+    self.dateLabel.text = [dateFormatter stringFromDate:item.dateCreated];
     
 }
 
@@ -61,6 +62,36 @@
 -(void)setItem:(KRNItems *)item {
     _item = item;
     self.navigationItem.title = self.item.itemName;
+}
+- (IBAction)takePicture:(id)sender {
+    
+    UIImagePickerController *imagePicker = [[UIImagePickerController alloc]init];
+    
+    //If a device has a camera, take a picture otherwise just pick from photo library
+    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+    }
+    else {
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    
+    imagePicker.delegate = self;
+    
+    //Place Image Picker on the screen
+    [self presentViewController:imagePicker animated:YES completion:nil];
+}
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    //Get picked image from info dictionary
+    UIImage *image = info[UIImagePickerControllerOriginalImage];
+    
+    //Put that image in to the screen in our image view
+    self.imageView.image = image;
+    
+    //Take Image picker off the screen - you must call this dismiss method
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

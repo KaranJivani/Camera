@@ -21,8 +21,9 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    UIView *header = self.headerView;
-    [self.tableView setTableHeaderView:header];
+    //Uncomment following code for headerview implemetation which edit and add exactly works similar to UINavigationItems add and edit 
+//    UIView *header = self.headerView;
+//    [self.tableView setTableHeaderView:header];
     }
 -(instancetype)init {
     
