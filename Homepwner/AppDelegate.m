@@ -19,7 +19,14 @@
     // Override point for customization after application launch.
     
     KRNItemsViewController *itemsViewController = [[KRNItemsViewController alloc]init];
-    self.window.rootViewController = itemsViewController;
+
+    //Create an instance of a UINavigationController
+    //Its stack contains only itemViewController
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:itemsViewController];
+    //Place navigation controllers view in hierarchy
+    self.window.rootViewController = navController;
+//    self.window.rootViewController = itemsViewController;
     
         return YES;
 }

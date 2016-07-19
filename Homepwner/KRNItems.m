@@ -93,4 +93,12 @@
     NSLog(@"Destroyed: %@",self);
 }
 
+-(NSDate *) dateCreated {
+    NSDate *date = [[NSDate alloc]initWithTimeIntervalSinceNow:0];
+    
+    return date;
+    
+}
+
+
 @end

@@ -9,6 +9,7 @@
 #import "KRNItemsViewController.h"
 #import "KRNItemStore.h"
 #import "KRNItems.h"
+#import "KRNDetailViewController.h"
 
 @interface KRNItemsViewController ()
 
@@ -22,8 +23,7 @@
     
     UIView *header = self.headerView;
     [self.tableView setTableHeaderView:header];
-    
-}
+    }
 -(instancetype)init {
     
     self = [self initWithStyle:UITableViewStylePlain];
@@ -34,9 +34,26 @@
     //Call the superclass's designated initializer
     self = [super initWithStyle:UITableViewStylePlain];
     if (self) {
+        UINavigationItem *navItem = self.navigationItem;
+        navItem.title = @"Homepwner";
+        
+        //Create a bar button item that will send addNewItem: to KRNItemsViewController
+        UIBarButtonItem *bbi = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewItems:)];
+        
+        //set this bar button item as the right item in the navigation item
+        navItem.rightBarButtonItem = bbi;
+        
+        navItem.leftBarButtonItem = self.editButtonItem;
+
            }
     
     return self;
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -104,6 +121,20 @@
 -(void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     
     [[KRNItemStore sharedStore]moveItemAtIndex:destinationIndexPath.row toIndex:sourceIndexPath.row];
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    KRNDetailViewController *detaiViewController = [[KRNDetailViewController alloc]init];
+    //Put it onto the top of the navigation controller's stack
+    [self.navigationController pushViewController:detaiViewController animated:YES];
+    
+    NSArray *items = [[KRNItemStore sharedStore]allItems];
+    KRNItems *selectedItem = [items objectAtIndex:indexPath.row];
+    
+    //Give detail view controller a pointer to the item object in row
+    detaiViewController.item = selectedItem;
+    
 }
 
 -(IBAction)toggleEditingMode:(id)sender{

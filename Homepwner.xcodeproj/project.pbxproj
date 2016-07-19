@@ -10,6 +10,8 @@
 		A7355C581D3AF41200F4BC79 /* KRNItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A7355C571D3AF41200F4BC79 /* KRNItems.m */; };
 		A7355C5B1D3AFD3D00F4BC79 /* KRNItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A7355C5A1D3AFD3D00F4BC79 /* KRNItemStore.m */; };
 		A79F72101D3C91C7003F6AEC /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79F720F1D3C91C7003F6AEC /* HeaderView.xib */; };
+		A79F721B1D3D735D003F6AEC /* KRNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F72191D3D735D003F6AEC /* KRNDetailViewController.m */; };
+		A79F721C1D3D735D003F6AEC /* KRNDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79F721A1D3D735D003F6AEC /* KRNDetailViewController.xib */; };
 		A7B96DD81D3AEBB90029F776 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B96DD71D3AEBB90029F776 /* main.m */; };
 		A7B96DDB1D3AEBB90029F776 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B96DDA1D3AEBB90029F776 /* AppDelegate.m */; };
 		A7B96DDE1D3AEBB90029F776 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B96DDD1D3AEBB90029F776 /* ViewController.m */; };
@@ -25,6 +27,9 @@
 		A7355C591D3AFD3D00F4BC79 /* KRNItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItemStore.h; sourceTree = "<group>"; };
 		A7355C5A1D3AFD3D00F4BC79 /* KRNItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItemStore.m; sourceTree = "<group>"; };
 		A79F720F1D3C91C7003F6AEC /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
+		A79F72181D3D735D003F6AEC /* KRNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNDetailViewController.h; sourceTree = "<group>"; };
+		A79F72191D3D735D003F6AEC /* KRNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNDetailViewController.m; sourceTree = "<group>"; };
+		A79F721A1D3D735D003F6AEC /* KRNDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRNDetailViewController.xib; sourceTree = "<group>"; };
 		A7B96DD31D3AEBB90029F776 /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7B96DD71D3AEBB90029F776 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A7B96DD91D3AEBB90029F776 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -69,6 +74,9 @@
 		A7B96DD51D3AEBB90029F776 /* Homepwner */ = {
 			isa = PBXGroup;
 			children = (
+				A79F72181D3D735D003F6AEC /* KRNDetailViewController.h */,
+				A79F72191D3D735D003F6AEC /* KRNDetailViewController.m */,
+				A79F721A1D3D735D003F6AEC /* KRNDetailViewController.xib */,
 				A7B96DF31D3AEE5C0029F776 /* KRNItemsViewController.h */,
 				A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */,
 				A79F720F1D3C91C7003F6AEC /* HeaderView.xib */,
@@ -158,6 +166,7 @@
 				A7B96DE31D3AEBB90029F776 /* Assets.xcassets in Resources */,
 				A7B96DE11D3AEBB90029F776 /* Main.storyboard in Resources */,
 				A79F72101D3C91C7003F6AEC /* HeaderView.xib in Resources */,
+				A79F721C1D3D735D003F6AEC /* KRNDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +181,7 @@
 				A7B96DDE1D3AEBB90029F776 /* ViewController.m in Sources */,
 				A7B96DDB1D3AEBB90029F776 /* AppDelegate.m in Sources */,
 				A7355C581D3AF41200F4BC79 /* KRNItems.m in Sources */,
+				A79F721B1D3D735D003F6AEC /* KRNDetailViewController.m in Sources */,
 				A7B96DD81D3AEBB90029F776 /* main.m in Sources */,
 				A7B96DF51D3AEE5C0029F776 /* KRNItemsViewController.m in Sources */,
 			);
