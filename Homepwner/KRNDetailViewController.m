@@ -55,6 +55,10 @@
     
     //Use that Image to put on the screen in image view
     self.imageView.image = imageToDisplay;
+    
+    if (!self.imageView.image) {
+        self.imageView.hidden = TRUE;
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -109,6 +113,9 @@
     
     //Take Image picker off the screen - you must call this dismiss method
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    self.imageView.hidden = false;
+
 }
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField {
@@ -154,6 +161,7 @@
     
     [self.view addConstraints:horizontalConstraints];
     [self.view addConstraints:verticalConstraints];
+
 }
 
 @end
