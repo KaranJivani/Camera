@@ -21,6 +21,12 @@
 
 @implementation KRNDetailViewController
 
+-(void)viewDidLoad {
+    
+    [super viewDidLoad];
+    [self addImageToView];
+}
+
 
 -(void)viewWillAppear:(BOOL)animated {
     
@@ -113,4 +119,41 @@
 -(IBAction)backgroundTapped:(id)sender {
     [self.view endEditing:YES];
 }
+
+//programatically adding image view and Constraint using Visual Format Language
+
+-(void)addImageToView {
+    
+    UIImageView *iv = [[UIImageView alloc]initWithImage:nil];
+    
+    //The Content mode of the ImageView in the XIB was Aspect fit:
+    iv.contentMode = UIViewContentModeScaleAspectFit;
+    
+    //Do not produce the translated constraint for this view
+    iv.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //The Image view was a subview of a view
+    [self.view addSubview:iv];
+    
+    //The Imageview was pointed to by the imageView Property
+    self.imageView = iv;
+    
+    NSDictionary *nameMap = @{@"imageView" : self.imageView, @"dateLabel" : self.dateLabel, @"toolbar" : self.toolbar};
+    
+    //imageView is 0 pts from superview at left and right edges
+    NSArray *horizontalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[imageView]-0-|"
+                                                                             options:0
+                                                                             metrics:nil
+                                                                               views:nameMap];
+    
+    //imageView is 10 pts from date Label at its top edge and 10 points from toolbar at its bottom edge
+    NSArray *verticalConstraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[dateLabel]-10-[imageView]-10-[toolbar]"
+                                                                           options:0
+                                                                           metrics:nil
+                                                                             views:nameMap];
+    
+    [self.view addConstraints:horizontalConstraints];
+    [self.view addConstraints:verticalConstraints];
+}
+
 @end
