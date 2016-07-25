@@ -8,7 +8,7 @@
 
 #import "KRNDetailViewController.h"
 
-@interface KRNDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate>
+@interface KRNDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
 @property (weak, nonatomic) IBOutlet UITextField *serialNumberField;
@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
+@property(strong,nonatomic) IBOutlet UIPopoverController *imagePickerPopover;
 
 @end
 
@@ -96,8 +98,18 @@
     
     imagePicker.delegate = self;
     
-    //Place Image Picker on the screen
-    [self presentViewController:imagePicker animated:YES completion:nil];
+    //Place Image Picker on the screen - check for ipad device before instantiating the popover controller
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        //Create a new popover controller that will display the image picker
+        
+        self.imagePickerPopover = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
+        self.imagePickerPopover.delegate = self;
+        //Display the popover controller; Sender is the camera bar button item
+        [self.imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    }
+    else {
+        [self presentViewController:imagePicker animated:YES completion:nil];
+    }
 }
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
