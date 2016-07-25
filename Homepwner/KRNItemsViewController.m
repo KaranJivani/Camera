@@ -97,17 +97,23 @@
     
     //Create a KRNItem and add it to the store
     KRNItems *newItem = [[KRNItemStore sharedStore]createItem];
+    KRNDetailViewController *detailViewController = [[KRNDetailViewController alloc]initForNewItem:YES];
+    detailViewController.item = newItem;
     
-    //Figure out where that item is in the array
-    NSInteger lastRow = [[[KRNItemStore sharedStore]allItems] indexOfObject:newItem];
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:detailViewController];
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:navController animated:YES completion:nil];
     
-    //Make a new Indexpath for 0th section, last row
-//    NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-    //Insert this row in the table
     
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
-    
+    /*//Figure out where that item is in the array
+     NSInteger lastRow = [[[KRNItemStore sharedStore]allItems] indexOfObject:newItem];
+     
+     //Make a new Indexpath for 0th section, last row
+     //    NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
+     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+     //Insert this row in the table
+     
+     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];*/
     
 }
 
@@ -134,7 +140,7 @@
 #pragma mark Table view delegate
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    KRNDetailViewController *detaiViewController = [[KRNDetailViewController alloc]init];
+    KRNDetailViewController *detaiViewController = [[KRNDetailViewController alloc]initForNewItem:NO];
     //Put it onto the top of the navigation controller's stack
     [self.navigationController pushViewController:detaiViewController animated:YES];
     

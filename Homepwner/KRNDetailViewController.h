@@ -11,6 +11,8 @@
 #import "KRNImageStore.h"
 @interface KRNDetailViewController : UIViewController
 
+-(instancetype)initForNewItem: (BOOL)isNew;
+
 @property(strong,nonatomic) KRNItems *item;
 
 @end

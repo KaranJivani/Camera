@@ -7,6 +7,7 @@
 //
 
 #import "KRNDetailViewController.h"
+#import "KRNItemStore.h"
 
 @interface KRNDetailViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, UITextFieldDelegate, UIPopoverControllerDelegate>
 
@@ -19,10 +20,30 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property(strong,nonatomic) IBOutlet UIPopoverController *imagePickerPopover;
 
+@property(nonatomic,copy)void (^dismissBlock)(void);
 @end
 
 @implementation KRNDetailViewController
 
+-(instancetype)initForNewItem: (BOOL)isNew {
+    self = [super initWithNibName:nil bundle:nil];
+    if (self) {
+        if (isNew) {
+            UIBarButtonItem *doneItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(save:)];
+            self.navigationItem.rightBarButtonItem = doneItem;
+            
+            UIBarButtonItem *cancelItem = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemCancel target:self action:@selector(cancel:)];
+            self.navigationItem.leftBarButtonItem = cancelItem;
+        }
+    }
+    
+    return self;
+}
+
+-(instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+    @throw [NSException exceptionWithName:@"Wrong Initilizer" reason:@"Use initForNewItem" userInfo:nil];
+    return nil;
+}
 -(void)viewDidLoad {
     
     [super viewDidLoad];
@@ -100,8 +121,6 @@
     
     //Place Image Picker on the screen - check for ipad device before instantiating the popover controller
     if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
-        //Create a new popover controller that will display the image picker
-        
         self.imagePickerPopover = [[UIPopoverController alloc]initWithContentViewController:imagePicker];
         self.imagePickerPopover.delegate = self;
         //Display the popover controller; Sender is the camera bar button item
@@ -174,6 +193,18 @@
     [self.view addConstraints:horizontalConstraints];
     [self.view addConstraints:verticalConstraints];
 
+}
+
+-(void)save: (id)sender {
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)cancel: (id)sender {
+    //If user cancelled, then remove the KRNItem from the store
+    [[KRNItemStore sharedStore]removeItem:self.item];
+    
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 @end
