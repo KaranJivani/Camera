@@ -86,7 +86,7 @@
     //Get the one document directory from the list
     NSString *documentDirectory = [documentDirectories firstObject];
     
-    return [documentDirectory stringByAppendingString:@"item.archive"];
+    return [documentDirectory stringByAppendingPathComponent:@"item.archive"];
 }
 
 -(BOOL)saveChanges {
