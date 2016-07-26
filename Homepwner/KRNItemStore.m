@@ -75,4 +75,24 @@
     //Insert item in array at new location
     [self.privateItems insertObject:item atIndex:toIndex];
 }
+
+#pragma mark Construct file path method, Place to save data on file system
+
+-(NSString *)itemArchivePath {
+    
+    //Make sure that first argument is NSDocumentDictionary and not NSDocumentation dictionary
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    
+    //Get the one document directory from the list
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingString:@"item.archive"];
+}
+
+-(BOOL)saveChanges {
+    NSString *path = [self itemArchivePath];
+    
+    //Returns YES on success
+    return [NSKeyedArchiver archiveRootObject:self.privateItems toFile:path];
+}
 @end

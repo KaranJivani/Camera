@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "KRNItemsViewController.h"
+#import "KRNItemStore.h"
 @interface AppDelegate ()
 
 @end
@@ -39,6 +40,15 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    BOOL success = [[KRNItemStore sharedStore]saveChanges];
+    
+    if (success) {
+        NSLog(@"saved all of the KRNItems");
+    }
+    else {
+        NSLog(@"could not save any of the KRNItems");
+    }
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
