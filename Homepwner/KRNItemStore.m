@@ -38,7 +38,15 @@
 -(instancetype)initPrivate {
     self = [super init];
     if (self) {
-        self.privateItems = [[NSMutableArray alloc]init];
+//        self.privateItems = [[NSMutableArray alloc]init];
+        
+        NSString *path = [self itemArchivePath];
+        self.privateItems = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+        
+        //If the array had not been saved previously, create a new empty one
+        if (!self.privateItems) {
+                    self.privateItems = [[NSMutableArray alloc]init];
+        }
     }
     return self;
 }
@@ -49,7 +57,7 @@
 
 -(KRNItems *)createItem {
     
-    KRNItems *item = [KRNItems randomItem];
+    KRNItems *item = [[KRNItems alloc]init];
     [self.privateItems addObject:item];
     return item;
 }
