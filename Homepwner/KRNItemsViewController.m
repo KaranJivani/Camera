@@ -100,6 +100,11 @@
     KRNDetailViewController *detailViewController = [[KRNDetailViewController alloc]initForNewItem:YES];
     detailViewController.item = newItem;
     
+    //Completion block : Reload table so when Item added to table reloading table will show it 
+    detailViewController.dismissBlock = ^{
+                                            [self.tableView reloadData];
+                                        };
+    
     UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:detailViewController];
     navController.modalPresentationStyle = UIModalPresentationFormSheet;
     [self presentViewController:navController animated:YES completion:nil];

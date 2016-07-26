@@ -20,7 +20,6 @@
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cameraButton;
 @property(strong,nonatomic) IBOutlet UIPopoverController *imagePickerPopover;
 
-@property(nonatomic,copy)void (^dismissBlock)(void);
 @end
 
 @implementation KRNDetailViewController
@@ -127,6 +126,7 @@
         [self.imagePickerPopover presentPopoverFromBarButtonItem:sender permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
     }
     else {
+        imagePicker.modalTransitionStyle = UIModalTransitionStylePartialCurl;
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
 }
@@ -196,14 +196,14 @@
 }
 
 -(void)save: (id)sender {
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
 }
 
 -(void)cancel: (id)sender {
     //If user cancelled, then remove the KRNItem from the store
     [[KRNItemStore sharedStore]removeItem:self.item];
     
-    [self.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [self.presentingViewController dismissViewControllerAnimated:YES completion:self.dismissBlock];
     
 }
 

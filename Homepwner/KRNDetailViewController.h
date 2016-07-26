@@ -15,4 +15,8 @@
 
 @property(strong,nonatomic) KRNItems *item;
 
+//Completion Block for reloading table view when dismiss the view controller and pass this block to dissmiss view controller method in completion Argument
+@property(nonatomic,copy) void(^dismissBlock)(void);
+
+
 @end
