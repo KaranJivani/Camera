@@ -16,19 +16,23 @@
 
 @implementation KRNImageStore
 
+#pragma mark Sinleton methods
 +(instancetype)sharedStore {
     
     static KRNImageStore *sharedStore = nil;
-    if (!sharedStore) {
-        sharedStore = [[self alloc]initPrivate];
-    }
-    return sharedStore;
-}
 
--(instancetype)init {
+//    if (!sharedStore) {
+//        sharedStore = [[self alloc]initPrivate];
+//    }
     
-    @throw [NSException exceptionWithName:@"Singleton" reason:@"Use +[BNRImageStore sharedStore]" userInfo:nil];
-    return nil;
+    //Thread safe singleton using function dispatch_once to ensure that code is run exactly once
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedStore = [[self alloc]initPrivate];
+                    });
+    
+    return sharedStore;
 }
 
 -(instancetype)initPrivate {
@@ -38,6 +42,13 @@
     }
     return self;
 }
+
+-(instancetype)init {
+    
+    @throw [NSException exceptionWithName:@"Singleton" reason:@"Use +[BNRImageStore sharedStore]" userInfo:nil];
+    return nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
