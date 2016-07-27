@@ -71,17 +71,60 @@
 
 -(void)setImage: (UIImage *)image forKey:(NSString *)key {
     [self.dictionary setObject:image forKey:key];
-}
--(UIImage *)imageForKey: (NSString *)key {
-    return [self.dictionary objectForKey:key];
     
+    //Create a full path for image
+    NSString *imagePath = [self imagePathForKey:key];
+    
+    //Turn Image into JPEG data
+    NSData *data = UIImageJPEGRepresentation(image, 0.5);
+    
+    //write it to full path
+    [data writeToFile:imagePath atomically:YES];
 }
+
+-(UIImage *)imageForKey: (NSString *)key {
+//    return [self.dictionary objectForKey:key];
+    
+    //If Possible, Get image from the directory
+    UIImage *result = self.dictionary[key];
+    if (!result) {
+        NSString *imagePath = [self imagePathForKey:key];
+        
+        //Create UIImage object from file
+        result = [UIImage imageWithContentsOfFile:imagePath];
+        
+        //If we found Image on file system, place it in to a cache
+        if (result) {
+            self.dictionary[key] = result;
+        }
+        else {
+            NSLog(@"Error: Unable to find %@",[self imagePathForKey:key]);
+        }
+    }
+    return result;
+}
+
 -(void)deleteImageForKey: (NSString *)key {
     if (!key) {
         return;
     }
     [self.dictionary removeObjectForKey:key];
+    
+    //when an image is deleted from the store it also deleted from file system
+    NSString *imagePath = [self imagePathForKey:key];
+    [[NSFileManager defaultManager]removeItemAtPath:imagePath error:nil];
 }
 
+- (NSString *)imagePathForKey:(NSString *)key {
+    
+    NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
+                                                                       NSUserDomainMask,
+                                                                       YES);
+    
+    NSString *documentDirectory = [documentDirectories firstObject];
+    
+    return [documentDirectory stringByAppendingPathComponent:key];
+
+}
 
 @end

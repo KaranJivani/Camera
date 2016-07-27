@@ -62,6 +62,35 @@
     [self.tableView reloadData];
 }
 
+-(IBAction)addNewItems:(id)sender{
+    
+    //Create a KRNItem and add it to the store
+    KRNItems *newItem = [[KRNItemStore sharedStore]createItem];
+    KRNDetailViewController *detailViewController = [[KRNDetailViewController alloc]initForNewItem:YES];
+    detailViewController.item = newItem;
+    
+    //Completion block : Reload table so when Item added to table reloading table will show it
+    detailViewController.dismissBlock = ^{
+        [self.tableView reloadData];
+    };
+    
+    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:detailViewController];
+    navController.modalPresentationStyle = UIModalPresentationFormSheet;
+    [self presentViewController:navController animated:YES completion:nil];
+    
+    
+    /*//Figure out where that item is in the array
+     NSInteger lastRow = [[[KRNItemStore sharedStore]allItems] indexOfObject:newItem];
+     
+     //Make a new Indexpath for 0th section, last row
+     //    NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
+     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
+     //Insert this row in the table
+     
+     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];*/
+    
+}
+
 #pragma mark Table view data source
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -91,35 +120,6 @@
     
     cell.textLabel.text = item.description;
     return cell;
-}
-
--(IBAction)addNewItems:(id)sender{
-    
-    //Create a KRNItem and add it to the store
-    KRNItems *newItem = [[KRNItemStore sharedStore]createItem];
-    KRNDetailViewController *detailViewController = [[KRNDetailViewController alloc]initForNewItem:YES];
-    detailViewController.item = newItem;
-    
-    //Completion block : Reload table so when Item added to table reloading table will show it 
-    detailViewController.dismissBlock = ^{
-                                            [self.tableView reloadData];
-                                        };
-    
-    UINavigationController *navController = [[UINavigationController alloc]initWithRootViewController:detailViewController];
-    navController.modalPresentationStyle = UIModalPresentationFormSheet;
-    [self presentViewController:navController animated:YES completion:nil];
-    
-    
-    /*//Figure out where that item is in the array
-     NSInteger lastRow = [[[KRNItemStore sharedStore]allItems] indexOfObject:newItem];
-     
-     //Make a new Indexpath for 0th section, last row
-     //    NSInteger lastRow = [self.tableView numberOfRowsInSection:0];
-     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:lastRow inSection:0];
-     //Insert this row in the table
-     
-     [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];*/
-    
 }
 
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
