@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A733B6E11D4A8949006452F0 /* KRNImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A733B6E01D4A8949006452F0 /* KRNImageViewController.m */; };
 		A7355C581D3AF41200F4BC79 /* KRNItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A7355C571D3AF41200F4BC79 /* KRNItems.m */; };
 		A7355C5B1D3AFD3D00F4BC79 /* KRNItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A7355C5A1D3AFD3D00F4BC79 /* KRNItemStore.m */; };
 		A79F72101D3C91C7003F6AEC /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79F720F1D3C91C7003F6AEC /* HeaderView.xib */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A733B6DF1D4A8949006452F0 /* KRNImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNImageViewController.h; sourceTree = "<group>"; };
+		A733B6E01D4A8949006452F0 /* KRNImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNImageViewController.m; sourceTree = "<group>"; };
 		A7355C561D3AF41200F4BC79 /* KRNItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItems.h; sourceTree = "<group>"; };
 		A7355C571D3AF41200F4BC79 /* KRNItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItems.m; sourceTree = "<group>"; };
 		A7355C591D3AFD3D00F4BC79 /* KRNItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItemStore.h; sourceTree = "<group>"; };
@@ -87,11 +90,13 @@
 				A79F721A1D3D735D003F6AEC /* KRNDetailViewController.xib */,
 				A7FB0B141D3E97510005B166 /* KRNImageStore.h */,
 				A7FB0B151D3E97510005B166 /* KRNImageStore.m */,
+				A7B96DF31D3AEE5C0029F776 /* KRNItemsViewController.h */,
+				A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */,
+				A733B6DF1D4A8949006452F0 /* KRNImageViewController.h */,
+				A733B6E01D4A8949006452F0 /* KRNImageViewController.m */,
 				A7A64D0E1D4952BF001ADF13 /* KRNItemCell.h */,
 				A7A64D0F1D4952BF001ADF13 /* KRNItemCell.m */,
 				A7A64D111D49530B001ADF13 /* KRNItemCell.xib */,
-				A7B96DF31D3AEE5C0029F776 /* KRNItemsViewController.h */,
-				A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */,
 				A79F720F1D3C91C7003F6AEC /* HeaderView.xib */,
 				A7355C561D3AF41200F4BC79 /* KRNItems.h */,
 				A7355C571D3AF41200F4BC79 /* KRNItems.m */,
@@ -192,6 +197,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A733B6E11D4A8949006452F0 /* KRNImageViewController.m in Sources */,
 				A7355C5B1D3AFD3D00F4BC79 /* KRNItemStore.m in Sources */,
 				A7B96DDE1D3AEBB90029F776 /* ViewController.m in Sources */,
 				A7B96DDB1D3AEBB90029F776 /* AppDelegate.m in Sources */,

@@ -11,10 +11,13 @@
 #import "KRNItems.h"
 #import "KRNDetailViewController.h"
 #import "KRNItemCell.h"
+#import "KRNImageStore.h"
+#import "KRNImageViewController.h"
 
 @interface KRNItemsViewController ()
 
 @property (nonatomic,strong) IBOutlet UIView *headerView;
+@property(nonatomic,strong) UIPopoverController *imagePopover;
 
 @end
 @implementation KRNItemsViewController
@@ -135,9 +138,39 @@
     cell.valueLabel.text = [NSString stringWithFormat:@"%d",item.valueInDollars];
     cell.thumbNailView.image = item.thumbnail;
     
+    cell.actionBlock = ^ {
+        NSLog(@"Going to show Image for %@",item);
+        
+        if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+            NSString *itemKey = item.itemKey;
+            //If there is no Image we dont need to display anything
+            UIImage *img = [[KRNImageStore sharedStore]imageForKey:itemKey];
+            if (!img) {
+                return;
+            }
+            
+            //Make a rectangle for the frame of the thumbnail relative to our table view
+            CGRect rect = [self.view convertRect:cell.thumbNailView.bounds fromView:cell.thumbNailView];
+            
+            //Create a new KRNImageViewController and set its image
+            KRNImageViewController *ivc = [[KRNImageViewController alloc]init];
+            ivc.image = img;
+            
+            //Present a 700*700 popover from the rect
+            self.imagePopover = [[UIPopoverController alloc]initWithContentViewController:ivc];
+            self.imagePopover.delegate = self;
+            self.imagePopover.popoverContentSize = CGSizeMake(700,700);
+            [self.imagePopover presentPopoverFromRect:rect inView:self.view permittedArrowDirections:UIPopoverArrowDirectionUp animated:YES];
+        }
+    };
+    
     return cell;
 }
 
+-(void)popovercontrollerDidDismissPopover : (UIPopoverController *)popoverController {
+    
+    self.imagePopover = nil;
+}
 -(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //If the tableview is asking to commit a delete command

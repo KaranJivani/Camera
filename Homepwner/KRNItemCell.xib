@@ -40,17 +40,27 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcm-Z3-VgZ">
+                        <rect key="frame" x="0.0" y="0.0" width="66" height="66"/>
+                        <connections>
+                            <action selector="showImage:" destination="jyb-fd-fg3" eventType="touchUpInside" id="Njs-2D-ycW"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="MKn-JW-Gu9" secondAttribute="trailing" constant="24" id="0re-Ax-wut"/>
+                    <constraint firstItem="fcm-Z3-VgZ" firstAttribute="top" secondItem="Ywy-PW-gft" secondAttribute="top" id="8dn-R4-QIm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="Ywy-PW-gft" secondAttribute="bottom" constant="-8.5" id="GP8-s3-aXN"/>
                     <constraint firstAttribute="bottom" secondItem="Ywy-PW-gft" secondAttribute="bottom" id="GQ8-r8-Af0"/>
+                    <constraint firstItem="fcm-Z3-VgZ" firstAttribute="leading" secondItem="Ywy-PW-gft" secondAttribute="leading" id="GmI-iA-WM7"/>
                     <constraint firstItem="MKn-JW-Gu9" firstAttribute="centerY" secondItem="l9a-EY-gsC" secondAttribute="centerY" id="NqD-KC-Vl3"/>
                     <constraint firstItem="bPV-To-1TU" firstAttribute="top" secondItem="0jY-Dv-E7g" secondAttribute="bottom" constant="8" id="PdN-sP-nEC"/>
+                    <constraint firstItem="fcm-Z3-VgZ" firstAttribute="trailing" secondItem="Ywy-PW-gft" secondAttribute="trailing" id="UeV-qx-XZv"/>
                     <constraint firstItem="Ywy-PW-gft" firstAttribute="leading" secondItem="l9a-EY-gsC" secondAttribute="leading" id="WX3-k1-EGp"/>
                     <constraint firstItem="Ywy-PW-gft" firstAttribute="top" secondItem="l9a-EY-gsC" secondAttribute="top" id="aFf-oQ-yjo"/>
                     <constraint firstItem="0jY-Dv-E7g" firstAttribute="top" secondItem="l9a-EY-gsC" secondAttribute="topMargin" constant="3" id="cGZ-gk-01K"/>
                     <constraint firstItem="Ywy-PW-gft" firstAttribute="top" secondItem="l9a-EY-gsC" secondAttribute="topMargin" constant="-8" id="ehc-cL-MvK"/>
+                    <constraint firstItem="fcm-Z3-VgZ" firstAttribute="bottom" secondItem="Ywy-PW-gft" secondAttribute="bottom" id="fMF-WW-UKu"/>
                     <constraint firstItem="bPV-To-1TU" firstAttribute="leading" secondItem="0jY-Dv-E7g" secondAttribute="leading" id="gSS-rj-Cs7"/>
                     <constraint firstItem="0jY-Dv-E7g" firstAttribute="leading" secondItem="Ywy-PW-gft" secondAttribute="trailing" constant="7" id="z1P-jR-EHY"/>
                 </constraints>
