@@ -138,9 +138,11 @@
     cell.valueLabel.text = [NSString stringWithFormat:@"%d",item.valueInDollars];
     cell.thumbNailView.image = item.thumbnail;
     
+    __weak KRNItemCell *weakCell = cell;
     cell.actionBlock = ^ {
         NSLog(@"Going to show Image for %@",item);
         
+        KRNItemCell *strongCell = weakCell;
         if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
             NSString *itemKey = item.itemKey;
             //If there is no Image we dont need to display anything
@@ -150,7 +152,7 @@
             }
             
             //Make a rectangle for the frame of the thumbnail relative to our table view
-            CGRect rect = [self.view convertRect:cell.thumbNailView.bounds fromView:cell.thumbNailView];
+            CGRect rect = [self.view convertRect:strongCell.thumbNailView.bounds fromView:strongCell.thumbNailView];
             
             //Create a new KRNImageViewController and set its image
             KRNImageViewController *ivc = [[KRNImageViewController alloc]init];
