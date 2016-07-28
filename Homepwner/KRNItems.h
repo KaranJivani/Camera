@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface KRNItems : NSObject<NSCoding>
 
@@ -16,7 +17,7 @@
 @property(nonatomic,strong) NSDate *dateCreated;
 
 @property(nonatomic,copy)NSString *itemKey;
-    
+@property (nonatomic,strong) UIImage *thumbnail;
 
 +(instancetype) randomItem;
 
@@ -30,5 +31,7 @@
 //                   serialNumber : (NSString*)serialNumber;
 
 -(NSDate *) dateCreated;
+
+-(void)setThumbnailFromImage: (UIImage *)image;
 
 @end

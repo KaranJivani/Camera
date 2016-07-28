@@ -10,6 +10,7 @@
 #import "KRNItemStore.h"
 #import "KRNItems.h"
 #import "KRNDetailViewController.h"
+#import "KRNItemCell.h"
 
 @interface KRNItemsViewController ()
 
@@ -54,6 +55,15 @@
     //Uncomment following code for headerview implemetation which edit and add exactly works similar to UINavigationItems add and edit
     //    UIView *header = self.headerView;
     //    [self.tableView setTableHeaderView:header];
+    
+    //Load the NIB file
+    UINib *nib = [UINib nibWithNibName:@"KRNItemCell" bundle:nil];
+    
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44.0;
+    
+    //Resister this NIB which contains the cell
+    [self.tableView registerNib:nib forCellReuseIdentifier:@"KRNItemCell"];
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -105,20 +115,26 @@
 //    UITableViewCell *cell =[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"UITableViewCell"];
     
     //Get a new or recycled cell
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell" forIndexPath:indexPath];
+    KRNItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"KRNItemCell" forIndexPath:indexPath];
     
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-    }
+//    static NSString *CellIdentifier = @"Cell";
+//    
+//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+//    if (cell == nil) {
+//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+//    }
     
     //set the text on the cell with the description of the item that is at nth index of item
     NSArray *items = [[KRNItemStore sharedStore]allItems];
     KRNItems *item = [items objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = item.description;
+    //Configure the cell with the KRNItem
+    cell.nameLabel.text = item.itemName;
+    cell.serialNumberLabel.text = item.serialNumber;
+    
+    cell.valueLabel.text = [NSString stringWithFormat:@"%d",item.valueInDollars];
+    cell.thumbNailView.image = item.thumbnail;
+    
     return cell;
 }
 
