@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		A733B6E11D4A8949006452F0 /* KRNImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A733B6E01D4A8949006452F0 /* KRNImageViewController.m */; };
-		A7355C581D3AF41200F4BC79 /* KRNItems.m in Sources */ = {isa = PBXBuildFile; fileRef = A7355C571D3AF41200F4BC79 /* KRNItems.m */; };
 		A7355C5B1D3AFD3D00F4BC79 /* KRNItemStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A7355C5A1D3AFD3D00F4BC79 /* KRNItemStore.m */; };
 		A79F72101D3C91C7003F6AEC /* HeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79F720F1D3C91C7003F6AEC /* HeaderView.xib */; };
 		A79F721B1D3D735D003F6AEC /* KRNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A79F72191D3D735D003F6AEC /* KRNDetailViewController.m */; };
 		A79F721C1D3D735D003F6AEC /* KRNDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A79F721A1D3D735D003F6AEC /* KRNDetailViewController.xib */; };
+		A7A47C481D57EAE200B89507 /* Homepwner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A7A47C461D57EAE200B89507 /* Homepwner.xcdatamodeld */; };
+		A7A47C4E1D57EE5400B89507 /* KRNImageTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A47C4D1D57EE5400B89507 /* KRNImageTransformer.m */; };
 		A7A64D101D4952BF001ADF13 /* KRNItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A64D0F1D4952BF001ADF13 /* KRNItemCell.m */; };
 		A7A64D121D49530B001ADF13 /* KRNItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A7A64D111D49530B001ADF13 /* KRNItemCell.xib */; };
 		A7B96DD81D3AEBB90029F776 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B96DD71D3AEBB90029F776 /* main.m */; };
@@ -22,20 +23,23 @@
 		A7B96DE31D3AEBB90029F776 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A7B96DE21D3AEBB90029F776 /* Assets.xcassets */; };
 		A7B96DE61D3AEBB90029F776 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7B96DE41D3AEBB90029F776 /* LaunchScreen.storyboard */; };
 		A7B96DF51D3AEE5C0029F776 /* KRNItemsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */; };
+		A7C9A7181D5B958B00D051E9 /* KRNItem+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A7151D5B958B00D051E9 /* KRNItem+CoreDataProperties.m */; };
+		A7C9A7191D5B958B00D051E9 /* KRNItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A7C9A7171D5B958B00D051E9 /* KRNItem.m */; };
 		A7FB0B161D3E97510005B166 /* KRNImageStore.m in Sources */ = {isa = PBXBuildFile; fileRef = A7FB0B151D3E97510005B166 /* KRNImageStore.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A733B6DF1D4A8949006452F0 /* KRNImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNImageViewController.h; sourceTree = "<group>"; };
 		A733B6E01D4A8949006452F0 /* KRNImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNImageViewController.m; sourceTree = "<group>"; };
-		A7355C561D3AF41200F4BC79 /* KRNItems.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItems.h; sourceTree = "<group>"; };
-		A7355C571D3AF41200F4BC79 /* KRNItems.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItems.m; sourceTree = "<group>"; };
 		A7355C591D3AFD3D00F4BC79 /* KRNItemStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItemStore.h; sourceTree = "<group>"; };
 		A7355C5A1D3AFD3D00F4BC79 /* KRNItemStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItemStore.m; sourceTree = "<group>"; };
 		A79F720F1D3C91C7003F6AEC /* HeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeaderView.xib; sourceTree = "<group>"; };
 		A79F72181D3D735D003F6AEC /* KRNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNDetailViewController.h; sourceTree = "<group>"; };
 		A79F72191D3D735D003F6AEC /* KRNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNDetailViewController.m; sourceTree = "<group>"; };
 		A79F721A1D3D735D003F6AEC /* KRNDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRNDetailViewController.xib; sourceTree = "<group>"; };
+		A7A47C471D57EAE200B89507 /* Homepwner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Homepwner.xcdatamodel; sourceTree = "<group>"; };
+		A7A47C4C1D57EE5400B89507 /* KRNImageTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNImageTransformer.h; sourceTree = "<group>"; };
+		A7A47C4D1D57EE5400B89507 /* KRNImageTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNImageTransformer.m; sourceTree = "<group>"; };
 		A7A64D0E1D4952BF001ADF13 /* KRNItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItemCell.h; sourceTree = "<group>"; };
 		A7A64D0F1D4952BF001ADF13 /* KRNItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItemCell.m; sourceTree = "<group>"; };
 		A7A64D111D49530B001ADF13 /* KRNItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KRNItemCell.xib; sourceTree = "<group>"; };
@@ -51,6 +55,10 @@
 		A7B96DE71D3AEBB90029F776 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7B96DF31D3AEE5C0029F776 /* KRNItemsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItemsViewController.h; sourceTree = "<group>"; };
 		A7B96DF41D3AEE5C0029F776 /* KRNItemsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItemsViewController.m; sourceTree = "<group>"; };
+		A7C9A7141D5B958B00D051E9 /* KRNItem+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KRNItem+CoreDataProperties.h"; sourceTree = "<group>"; };
+		A7C9A7151D5B958B00D051E9 /* KRNItem+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KRNItem+CoreDataProperties.m"; sourceTree = "<group>"; };
+		A7C9A7161D5B958B00D051E9 /* KRNItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNItem.h; sourceTree = "<group>"; };
+		A7C9A7171D5B958B00D051E9 /* KRNItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNItem.m; sourceTree = "<group>"; };
 		A7FB0B141D3E97510005B166 /* KRNImageStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KRNImageStore.h; sourceTree = "<group>"; };
 		A7FB0B151D3E97510005B166 /* KRNImageStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KRNImageStore.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,6 +77,12 @@
 		A7B96DCA1D3AEBB90029F776 = {
 			isa = PBXGroup;
 			children = (
+				A7C9A7141D5B958B00D051E9 /* KRNItem+CoreDataProperties.h */,
+				A7C9A7151D5B958B00D051E9 /* KRNItem+CoreDataProperties.m */,
+				A7C9A7161D5B958B00D051E9 /* KRNItem.h */,
+				A7C9A7171D5B958B00D051E9 /* KRNItem.m */,
+				A7A47C4C1D57EE5400B89507 /* KRNImageTransformer.h */,
+				A7A47C4D1D57EE5400B89507 /* KRNImageTransformer.m */,
 				A7B96DD51D3AEBB90029F776 /* Homepwner */,
 				A7B96DD41D3AEBB90029F776 /* Products */,
 			);
@@ -98,8 +112,6 @@
 				A7A64D0F1D4952BF001ADF13 /* KRNItemCell.m */,
 				A7A64D111D49530B001ADF13 /* KRNItemCell.xib */,
 				A79F720F1D3C91C7003F6AEC /* HeaderView.xib */,
-				A7355C561D3AF41200F4BC79 /* KRNItems.h */,
-				A7355C571D3AF41200F4BC79 /* KRNItems.m */,
 				A7355C591D3AFD3D00F4BC79 /* KRNItemStore.h */,
 				A7355C5A1D3AFD3D00F4BC79 /* KRNItemStore.m */,
 				A7B96DD91D3AEBB90029F776 /* AppDelegate.h */,
@@ -110,6 +122,7 @@
 				A7B96DE21D3AEBB90029F776 /* Assets.xcassets */,
 				A7B96DE41D3AEBB90029F776 /* LaunchScreen.storyboard */,
 				A7B96DE71D3AEBB90029F776 /* Info.plist */,
+				A7A47C461D57EAE200B89507 /* Homepwner.xcdatamodeld */,
 				A7B96DD61D3AEBB90029F776 /* Supporting Files */,
 			);
 			path = Homepwner;
@@ -197,11 +210,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7C9A7181D5B958B00D051E9 /* KRNItem+CoreDataProperties.m in Sources */,
 				A733B6E11D4A8949006452F0 /* KRNImageViewController.m in Sources */,
 				A7355C5B1D3AFD3D00F4BC79 /* KRNItemStore.m in Sources */,
 				A7B96DDE1D3AEBB90029F776 /* ViewController.m in Sources */,
 				A7B96DDB1D3AEBB90029F776 /* AppDelegate.m in Sources */,
-				A7355C581D3AF41200F4BC79 /* KRNItems.m in Sources */,
+				A7A47C4E1D57EE5400B89507 /* KRNImageTransformer.m in Sources */,
+				A7C9A7191D5B958B00D051E9 /* KRNItem.m in Sources */,
+				A7A47C481D57EAE200B89507 /* Homepwner.xcdatamodeld in Sources */,
 				A79F721B1D3D735D003F6AEC /* KRNDetailViewController.m in Sources */,
 				A7A64D101D4952BF001ADF13 /* KRNItemCell.m in Sources */,
 				A7FB0B161D3E97510005B166 /* KRNImageStore.m in Sources */,
@@ -368,6 +384,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A7A47C461D57EAE200B89507 /* Homepwner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A7A47C471D57EAE200B89507 /* Homepwner.xcdatamodel */,
+			);
+			currentVersion = A7A47C471D57EAE200B89507 /* Homepwner.xcdatamodel */;
+			path = Homepwner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A7B96DCB1D3AEBB90029F776 /* Project object */;
 }

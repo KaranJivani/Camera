@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KRNItems.h"
+#import "KRNItem.h"
 #import "KRNImageStore.h"
 @interface KRNDetailViewController : UIViewController
 
 -(instancetype)initForNewItem: (BOOL)isNew;
 
-@property(strong,nonatomic) KRNItems *item;
+@property(strong,nonatomic) KRNItem *item;
 
 //Completion Block for reloading table view when dismiss the view controller and pass this block to dissmiss view controller method in completion Argument
 @property(nonatomic,copy) void(^dismissBlock)(void);

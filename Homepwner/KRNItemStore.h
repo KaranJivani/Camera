@@ -7,15 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
-@class KRNItems;
+@class KRNItem;
 
 @interface KRNItemStore : NSObject
 
 @property(nonatomic,readonly) NSArray *allItems;
 
 +(instancetype)sharedStore;
--(KRNItems *)createItem;
--(void)removeItem: (KRNItems *)item;
+-(KRNItem *)createItem;
+-(void)removeItem: (KRNItem *)item;
 -(void)moveItemAtIndex: (NSUInteger)fromIndex toIndex:(NSUInteger)toIndex;
 -(BOOL)saveChanges;
 

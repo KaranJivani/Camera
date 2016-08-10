@@ -54,7 +54,7 @@
     
     [super viewWillAppear:animated];
     
-    KRNItems *item = self.item;
+    KRNItem *item = self.item;
     
     self.nameField.text = item.itemName;
     self.serialNumberField.text = item.serialNumber;
@@ -91,7 +91,7 @@
     [self.view endEditing:YES];
     
     //"Save changes to the item"
-    KRNItems *item = self.item;
+    KRNItem *item = self.item;
     
     item.itemName = self.nameField.text;
     item.serialNumber = self.serialNumberField.text;
@@ -99,7 +99,7 @@
     
 }
 
--(void)setItem:(KRNItems *)item {
+-(void)setItem:(KRNItem *)item {
     _item = item;
     self.navigationItem.title = self.item.itemName;
 }

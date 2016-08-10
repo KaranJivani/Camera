@@ -8,7 +8,7 @@
 
 #import "KRNItemsViewController.h"
 #import "KRNItemStore.h"
-#import "KRNItems.h"
+#import "KRNItem.h"
 #import "KRNDetailViewController.h"
 #import "KRNItemCell.h"
 #import "KRNImageStore.h"
@@ -78,7 +78,7 @@
 -(IBAction)addNewItems:(id)sender{
     
     //Create a KRNItem and add it to the store
-    KRNItems *newItem = [[KRNItemStore sharedStore]createItem];
+    KRNItem *newItem = [[KRNItemStore sharedStore]createItem];
     KRNDetailViewController *detailViewController = [[KRNDetailViewController alloc]initForNewItem:YES];
     detailViewController.item = newItem;
     
@@ -129,7 +129,7 @@
     
     //set the text on the cell with the description of the item that is at nth index of item
     NSArray *items = [[KRNItemStore sharedStore]allItems];
-    KRNItems *item = [items objectAtIndex:indexPath.row];
+    KRNItem *item = [items objectAtIndex:indexPath.row];
     
     //Configure the cell with the KRNItem
     cell.nameLabel.text = item.itemName;
@@ -178,7 +178,7 @@
     //If the tableview is asking to commit a delete command
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSArray *items = [[KRNItemStore sharedStore]allItems];
-        KRNItems *item = [items objectAtIndex:indexPath.row];
+        KRNItem *item = [items objectAtIndex:indexPath.row];
         [[KRNItemStore sharedStore]removeItem:item];
         
         //Also remove that row from the table view with an animation
@@ -201,7 +201,7 @@
     [self.navigationController pushViewController:detaiViewController animated:YES];
     
     NSArray *items = [[KRNItemStore sharedStore]allItems];
-    KRNItems *selectedItem = [items objectAtIndex:indexPath.row];
+    KRNItem *selectedItem = [items objectAtIndex:indexPath.row];
     
     //Give detail view controller a pointer to the item object in row
     detaiViewController.item = selectedItem;
